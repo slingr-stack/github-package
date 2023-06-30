@@ -1,0 +1,14 @@
+{
+  "label": "List of all assigned Issues call to githubApp",
+  "name": "listIssuesGithubApp",
+  "category": "integrations",
+  "description": "This flow step will send a request to githubApp to get all the user's issues.",
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}

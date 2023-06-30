@@ -1,0 +1,14 @@
+{
+  "label": "List of all repositories for the authenticated user call to githubApp",
+  "name": "listReposForUserGithubApp",
+  "category": "integrations",
+  "description": "This flow step will send a request to githubApp to get all the repositories that the authenticated user has explicit permission to access.",
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}

@@ -1,0 +1,2449 @@
+{
+  "fileName": "install",
+  "endpointName": "github",
+  "apiDescriptors": [
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/networks/:owner/:repo/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/received_events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/events/public",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/events/orgs/:org",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/feeds",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/notifications",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/notifications",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/notifications/threads/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/notifications/threads/:id/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stargazers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/starred",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/starred",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/starred/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/subscribers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/subscriptions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/subscriptions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/gists",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/public",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/starred",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/:id/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/:id/commits",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/:id/star",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gists/:id/forks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/blobs/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/commits/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/refs/:ref",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/refs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/tags/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/git/trees/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/apps/:app_slug",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/app",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/app/installations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/app/installations/:installation_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/installations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/installation/repositories",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/installations/:installation_id/repositories",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/marketplace_listing/plans",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/marketplace_listing/plans/:id/accounts",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/marketplace_listing/accounts/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/marketplace_purchases",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/assignees",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/assignees/:assignee",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:number/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "byIssue",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:issue_number/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/events/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/labels/:name",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:number/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/milestones/:number/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/milestones",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/milestones/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:issue_number/timeline",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/codes_of_conduct",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/codes_of_conduct/:key",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/community/code_of_conduct",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/emojis",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gitignore/templates",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/gitignore/templates/:name",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/licenses",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/licenses/:license",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/license",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/meta",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/rate_limit",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/orgs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/organizations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/orgs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/members",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/public_members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/invitations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/public_members",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/memberships/orgs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/memberships/orgs/:org",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/outside_collaborators",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/members",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/invitations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/repos",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/teams/:id/repos/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/hooks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/blocks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/blocks/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/projects",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/projects",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/projects/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/projects/columns/:column_id/cards",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "byId",
+      "method": "GET",
+      "url": "/projects/columns/cards/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/projects/:project_id/columns",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "byId",
+      "method": "GET",
+      "url": "/projects/columns/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/commits",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/files",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/merge",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "byId",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/:number/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/repos",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/users/:username/repos",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/orgs/:org/repos",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repositories",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/topics",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/contributors",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/languages",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/tags",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/collaborators",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/collaborators/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/collaborators/:username/permission",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/commits/:ref/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:name/community/profile",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/commits",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/compare/:baseCommitSuspensivePointsHeadCommit",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/commits/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/readme",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/contents/:path",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/:archive_format/:ref",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/keys",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/keys/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/deployments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/deployments/:deployment_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/deployments/:id/statuses",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/deployments/:id/statuses/:status_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/downloads",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/downloads/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/forks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/invitations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/user/repository_invitations",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pages",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pages/builds",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pages/builds/latest",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/pages/builds/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases/latest",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases/tags/:tag",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases/:id/assets",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "byId",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/releases/assets/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stats/contributors",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stats/commit_activity",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stats/code_frequency",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stats/participation",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/stats/punch_card",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/commits/:ref/statuses",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/commits/:ref/status",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/traffic/popular/referrers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/traffic/popular/paths",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/traffic/views",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/traffic/clones",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/hooks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/repos/:owner/:repo/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/search/repositories",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/search/commits",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/search/code",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/search/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/search/users",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/gists",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/gists/:id/forks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/git/blobs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/git/commits",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/git/refs",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/git/tags",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/git/trees",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/installations/:installation_id/access_tokens",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues/:number/assignees",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues/:number/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues/:number/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/milestones",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/markdown",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/markdown/raw",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/orgs/:org/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/orgs/:org/hooks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/orgs/:org/hooks/:id/pings",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/projects",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/orgs/:org/projects",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/projects/columns/:column_id/cards",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/projects/columns/cards/:id/moves",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/projects/:project_id/columns",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/projects/columns/:id/moves",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls/:number/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues/:number/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/user/repos",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/commits/:sha/comments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/keys",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/merges",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/pages/builds",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/releases",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/statuses/:sha",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/hooks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/hooks/:id/tests",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/repos/:owner/:repo/hooks/:id/pings",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/notifications/threads/:id/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/user/starred/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/gists/:id/star",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/gists/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/git/refs/:ref",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/issues/:number/lock",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/issues/:number/assignees",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/issues/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/labels/:name",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/issues/:number/labels/:name",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/issues/:number/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/milestones/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/public_members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/outside_collaborators/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/teams/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/teams/:id/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/teams/:id/repos/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/orgs/:org/blocks/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/projects/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/projects/columns/cards/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/projects/columns/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/pulls/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/reactions/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/collaborators/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/contents/:path",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/keys/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/deployments",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/deployments/:id/statuses",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/downloads/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/forks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/invitations/:invitation_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/user/repository_invitations/:invitation_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/releases/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/releases/assets/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "DELETE",
+      "url": "/repos/:owner/:repo/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/notifications/threads/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/gists/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/git/refs/:ref",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/issues/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/issues/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/labels/:name",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/milestones/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/orgs/:org",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/user/memberships/orgs/:org",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/teams/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/orgs/:org/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/projects/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/projects/columns/cards/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/projects/columns/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/pulls/:number",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/pulls/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/comments/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/invitations/:invitation_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/user/repository_invitations/:invitation_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/releases/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/releases/assets/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PATCH",
+      "url": "/repos/:owner/:repo/hooks/:id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/notifications",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/notifications",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/notifications/threads/:id/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/user/starred/:owner/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/subscription",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/gists/:id/star",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/issues/:number/lock",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/issues/:number/labels",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/orgs/:org/public_members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/orgs/:org/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/orgs/:org/outside_collaborators/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/teams/:id/members/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/teams/:id/memberships/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/teams/:id/repos/:org/:repo",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/orgs/:org/blocks/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/pulls/:number/merge",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/topics",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/branches/:branch/protection",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/collaborators/:username",
+      "acceptsCallbacks": false
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "PUT",
+      "url": "/repos/:owner/:repo/contents/:path",
+      "acceptsCallbacks": false
+    }
+  ]
+}
