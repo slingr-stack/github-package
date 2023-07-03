@@ -387,13 +387,9 @@ function setRequestHeaders(options) {
 }
 
 function getJsonWebToken() {
-    var currentTime = new Date().getTime();
-    var futureTime = new Date(currentTime + (10 * 60 * 1000));
     return sys.utils.crypto.generateJwt(
         {
-            iss: config.get("appId"),
-            iat: currentTime,
-            exp: futureTime
+            iss: config.get("appId")
         },
         config.get("privateKey"),
         "RS256"
