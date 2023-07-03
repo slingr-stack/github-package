@@ -4424,7 +4424,12 @@ function setRequestHeaders(options) {
     sys.logs.debug('[github] Setting header token');
 
     var account;
-    options.account !== undefined ? account = options.account : throw new Error('[github] the value in httpOptions.account is undefined and is required.');
+    if (options.account !== undefined) {
+        account = options.account
+    }
+    else {
+        throw new Error('[github] the value in httpOptions.account is undefined and is required.');
+    }
     var token = getAccessTokenForAccount(account);
 
     headers = mergeJSON(headers, {"Content-Type": "application/json"});
