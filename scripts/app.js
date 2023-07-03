@@ -385,13 +385,13 @@ function getJsonWebToken() {
     var currentTime = new Date().getTime();
     var futureTime = new Date(currentTime + (10 * 60 * 1000));
     return sys.utils.crypto.generateJwt(
-        "RS256",
         {
             iss: config.get("appId"),
             iat: currentTime,
             exp: futureTime
         },
-        config.get("privateKey"))
+        config.get("privateKey")),
+        "RS256"
 }
 
 function mergeJSON (json1, json2) {
