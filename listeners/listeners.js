@@ -2,7 +2,7 @@
  Listeners
  ****************************************************/
 
-listeners.defaultWebhook = {
+listeners.defaultWebhookGithub = {
     label: 'Catch HTTP github events',
     type: 'service',
     options: {
