@@ -3,98 +3,98 @@
   "endpointName": "github",
   "apiDescriptors": [
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/app",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "POST",
       "url": "/app-manifests/:code/conversions",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/app/installation-requests",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/app/installations",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/app/installations/:installation_id",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "DELETE",
       "url": "/app/installations/:installation_id",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "POST",
       "url": "/app/installations/:installation_id/access_tokens",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "PUT",
       "url": "/app/installations/:installation_id/suspended",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "DELETE",
       "url": "/app/installations/:installation_id/suspended",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "POST",
       "url": "/applications/:client_id/token/scoped",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/apps/:app_slug",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/orgs/:org/installation",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/repos/:owner/:repo/installation",
       "acceptsCallbacks": false
     },
     {
-      "prefix": "app",
+      "prefix": "",
       "suffix": "",
       "method": "GET",
       "url": "/users/:username/installation",

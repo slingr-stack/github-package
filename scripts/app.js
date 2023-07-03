@@ -8,50 +8,50 @@ var httpService = svc.http;
  Helpers
  ****************************************************/
 
+exports = {};
+
 exports.app = {};
 
-exports.app.app = {};
+exports.appManifests = {};
 
-exports.app.appManifests = {};
+exports.appManifests.conversions = {};
 
-exports.app.appManifests.conversions = {};
+exports.app.installationRequests = {};
 
-exports.app.app.installationRequests = {};
+exports.app.installations = {};
 
-exports.app.app.installations = {};
+exports.app.installations.accessTokens = {};
 
-exports.app.app.installations.accessTokens = {};
+exports.app.installations.suspended = {};
 
-exports.app.app.installations.suspended = {};
+exports.applications = {};
 
-exports.app.applications = {};
+exports.applications.token = {};
 
-exports.app.applications.token = {};
+exports.applications.token.scoped = {};
 
-exports.app.applications.token.scoped = {};
+exports.apps = {};
 
-exports.app.apps = {};
+exports.orgs = {};
 
-exports.app.orgs = {};
+exports.orgs.installation = {};
 
-exports.app.orgs.installation = {};
+exports.repos = {};
 
-exports.app.repos = {};
+exports.repos.installation = {};
 
-exports.app.repos.installation = {};
+exports.users = {};
 
-exports.app.users = {};
+exports.users.installation = {};
 
-exports.app.users.installation = {};
-
-exports.app.app.get = function(httpOptions) {
+exports.app.get = function(httpOptions) {
     var url = parse('/app');
     sys.logs.debug('[github] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
     return httpService.get(Github(options));
 };
 
-exports.app.appManifests.conversions.post = function(code, httpOptions) {
+exports.appManifests.conversions.post = function(code, httpOptions) {
     if (!code) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [code].');
         return;
@@ -62,14 +62,14 @@ exports.app.appManifests.conversions.post = function(code, httpOptions) {
     return httpService.post(Github(options));
 };
 
-exports.app.app.installationRequests.get = function(httpOptions) {
+exports.app.installationRequests.get = function(httpOptions) {
     var url = parse('/app/installation-requests');
     sys.logs.debug('[github] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
     return httpService.get(Github(options));
 };
 
-exports.app.app.installations.get = function(installationId, httpOptions) {
+exports.app.installations.get = function(installationId, httpOptions) {
     if(!httpOptions){
         for (var i = 0 ; i < arguments.length; i++){
             if (isObject(arguments[i])){
@@ -95,7 +95,7 @@ exports.app.app.installations.get = function(installationId, httpOptions) {
     return httpService.get(Github(options));
 };
 
-exports.app.app.installations.delete = function(installationId, httpOptions) {
+exports.app.installations.delete = function(installationId, httpOptions) {
     if (!installationId) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
         return;
@@ -106,7 +106,7 @@ exports.app.app.installations.delete = function(installationId, httpOptions) {
     return httpService.delete(Github(options));
 };
 
-exports.app.app.installations.accessTokens.post = function(installationId, httpOptions) {
+exports.app.installations.accessTokens.post = function(installationId, httpOptions) {
     if (!installationId) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
         return;
@@ -117,7 +117,7 @@ exports.app.app.installations.accessTokens.post = function(installationId, httpO
     return httpService.post(Github(options));
 };
 
-exports.app.app.installations.suspended.put = function(installationId, httpOptions) {
+exports.app.installations.suspended.put = function(installationId, httpOptions) {
     if (!installationId) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
         return;
@@ -128,7 +128,7 @@ exports.app.app.installations.suspended.put = function(installationId, httpOptio
     return httpService.put(Github(options));
 };
 
-exports.app.app.installations.suspended.delete = function(installationId, httpOptions) {
+exports.app.installations.suspended.delete = function(installationId, httpOptions) {
     if (!installationId) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
         return;
@@ -139,7 +139,7 @@ exports.app.app.installations.suspended.delete = function(installationId, httpOp
     return httpService.delete(Github(options));
 };
 
-exports.app.applications.token.scoped.post = function(clientId, httpOptions) {
+exports.applications.token.scoped.post = function(clientId, httpOptions) {
     if (!clientId) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [clientId].');
         return;
@@ -150,7 +150,7 @@ exports.app.applications.token.scoped.post = function(clientId, httpOptions) {
     return httpService.post(Github(options));
 };
 
-exports.app.apps.get = function(appSlug, httpOptions) {
+exports.apps.get = function(appSlug, httpOptions) {
     if (!appSlug) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [appSlug].');
         return;
@@ -161,7 +161,7 @@ exports.app.apps.get = function(appSlug, httpOptions) {
     return httpService.get(Github(options));
 };
 
-exports.app.orgs.installation.get = function(org, httpOptions) {
+exports.orgs.installation.get = function(org, httpOptions) {
     if (!org) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [org].');
         return;
@@ -172,7 +172,7 @@ exports.app.orgs.installation.get = function(org, httpOptions) {
     return httpService.get(Github(options));
 };
 
-exports.app.repos.installation.get = function(owner, repo, httpOptions) {
+exports.repos.installation.get = function(owner, repo, httpOptions) {
     if (!owner || !repo) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [owner,repo].');
         return;
@@ -183,7 +183,7 @@ exports.app.repos.installation.get = function(owner, repo, httpOptions) {
     return httpService.get(Github(options));
 };
 
-exports.app.users.installation.get = function(username, httpOptions) {
+exports.users.installation.get = function(username, httpOptions) {
     if (!username) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [username].');
         return;
