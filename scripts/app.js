@@ -395,8 +395,9 @@ function getJsonWebToken() {
             iat: currentTime,
             exp: futureTime
         },
-        config.get("privateKey")),
+        config.get("privateKey"),
         "RS256"
+    )
 }
 
 function mergeJSON (json1, json2) {
