@@ -4280,6 +4280,11 @@ exports.options = function(url, httpOptions, callbackData, callbacks) {
 
 exports.utils = {};
 
+exports.utils.getConfiguration = function (property) {
+    sys.logs.debug('[github] Get property: '+property);
+    return config.get(property);
+};
+
 exports.utils.parseTimestamp = function(dateString) {
     if (!dateString) {
         return null;
@@ -4390,7 +4395,7 @@ var parse = function (str) {
 
 
 var GITHUB_API_BASE_URL = "https://api.github.com";
-var API_URL = GITHUB_API_BASE_URL+"";
+var API_URL_GITHUB = GITHUB_API_BASE_URL+"";
 
 /****************************************************
  Configurator
@@ -4409,7 +4414,7 @@ var Github = function (options) {
 
 function setApiUri(options) {
     var url = options.path || "";
-    options.url = API_URL + url;
+    options.url = API_URL_GITHUB + url;
     sys.logs.debug('[github] Set url: ' + options.path + "->" + options.url);
     return options;
 }
