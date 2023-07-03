@@ -8,8 +8,6 @@ var httpService = svc.http;
  Helpers
  ****************************************************/
 
-exports = {};
-
 exports.app = {};
 
 exports.appManifests = {};
