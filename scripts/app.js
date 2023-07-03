@@ -235,6 +235,11 @@ exports.options = function(url, httpOptions, callbackData, callbacks) {
 
 exports.utils = {};
 
+exports.utils.getConfiguration = function (property) {
+    sys.logs.debug('[pandadoc] Get property: '+property);
+    return config.get(property);
+};
+
 exports.utils.parseTimestamp = function(dateString) {
     if (!dateString) {
         return null;
