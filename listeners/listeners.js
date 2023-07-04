@@ -19,9 +19,8 @@ listeners.defaultWebhookGithub = {
         var params = event.data.parameters;
         var headers = event.data.headers;
         var signature = headers['x-hub-signature'];
-        var secret = pkg.github.install.utils.getConfiguration("webhookSecret");
 
-        if (!pkg.github.install.utils.verifySignature(body, signature, secret)) {
+        if (!pkg.github.install.utils.verifySignature(body, signature)) {
             throw new Error("Invalid signature or body.");
         }
 

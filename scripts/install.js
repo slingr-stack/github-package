@@ -4334,6 +4334,7 @@ exports.utils.fromMillisToDate = function(params) {
 };
 
 exports.utils.verifySignature = function (body, signature) {
+    var secret = config.get("webhookSecret");
     if (!secret || secret === "" || !sys.utils.crypto.verifySignatureWithHmac(body, signature, secret, "HmacSHA1")) {
         sys.logs.error("Invalid signature or body");
         return false;
