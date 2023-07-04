@@ -4603,6 +4603,10 @@ sys.logs.info('Event name: '+body.event_name);
 
 {% include links.html %}
 
+## Dependencies
+* HTTP Service (Latest Version)
+* Oauth Package (v1.0.0)
+
 ## About SLINGR
 
 SLINGR is a low-code rapid application development platform that accelerates development, with robust architecture for integrations and executing custom workflows and automation.
