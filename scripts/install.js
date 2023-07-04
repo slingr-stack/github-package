@@ -4336,14 +4336,8 @@ exports.utils.fromMillisToDate = function(params) {
 exports.utils.verifySignature = function (body, signature) {
     sys.logs.info("Checking signature");
     var secret = config.get("webhookSecret");
-    sys.logs.warn(signature)
-    sys.logs.warn(body);
-    sys.logs.warn(JSON.stringify(body).toString());
-    sys.logs.warn(secret);
-    sys.logs.warn(signature.replace("sha1=",""));
     if (!secret || secret === "" ||
-        !sys.utils.crypto.verifySignatureWithHmac(
-            JSON.stringify(body).toString(), signature.replace("sha1=",""), secret, "HmacSHA1")) {
+        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
         sys.logs.error("Invalid signature or body");
         return false;
     }
