@@ -4333,6 +4333,14 @@ exports.utils.fromMillisToDate = function(params) {
     return null;
 };
 
+exports.utils.verifySignature = function (body, signature) {
+    if (!secret || secret === "" || !sys.utils.crypto.verifySignatureWithHmac(body, signature, secret, "HmacSHA1")) {
+        sys.logs.error("Invalid signature or body");
+        return false;
+    }
+    return true;
+}
+
 /****************************************************
  Private helpers
  ****************************************************/

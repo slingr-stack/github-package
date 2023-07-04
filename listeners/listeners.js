@@ -21,7 +21,7 @@ listeners.defaultWebhookGithub = {
         var signature = headers['x-hub-signature'];
         var secret = pkg.github.install.utils.getConfiguration("webhookSecret");
 
-        if (!verifySignature(body, signature, secret)) {
+        if (!pkg.github.install.utils.verifySignature(body, signature, secret)) {
             throw new Error("Invalid signature or body.");
         }
 
@@ -63,11 +63,3 @@ listeners.defaultWebhookGithub = {
         return "ok";
     }
 };
-
-function verifySignature(body, signature, secret) {
-    if (!secret || secret === "" || !sys.utils.crypto.verifySignatureWithHmac(body, signature, secret, "HmacSHA1")) {
-        sys.logs.error("Invalid signature or body");
-        return false;
-    }
-    return true;
-}
