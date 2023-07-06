@@ -5,13 +5,13 @@
         {
             "type": "service",
             "name": "http",
-            "version": "v1.1.5",
+            "version": "v1.2.6",
             "instanceId": "shared"
         },
         {
             "type": "package",
             "name": "oauth",
-            "version": "v1.0.0"
+            "version": "v1.0.5"
         }
     ],
     "configuration": [
