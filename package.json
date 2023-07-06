@@ -16,38 +16,11 @@
     ],
     "configuration": [
         {
-            "name": "config1",
-            "label": "App config",
-            "value": "The following fields are needed to access the API as a GitHub App. You will find it in you app details in GitHub.",
-            "type": "info"
-        },
-        {
             "name": "appId",
             "label": "App ID",
             "description": "ID of the GitHub app",
             "type": "text",
             "required": true
-        },
-        {
-            "name": "clientId",
-            "label": "Client ID",
-            "description": "The client ID of the GitHub app",
-            "type": "text",
-            "required": true
-        },
-        {
-            "name": "clientSecret",
-            "label": "Client secret",
-            "description": "The client secret of the GitHub app",
-            "type": "text",
-            "required": true
-        },
-        {
-            "name": "oauthCallback",
-            "label": "OAuth callback",
-            "description": "The OAuth callback to configure in your GitHub App",
-            "type": "label",
-            "value": "config.WEBHOOK_URL+'/authCallback'"
         },
         {
             "name": "webhooksUrl",
