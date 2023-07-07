@@ -4456,7 +4456,7 @@ function setRequestHeaders(options) {
 function getAccessTokenForAccount(account) {
     sys.logs.info('[github] Getting access token for account: ' + account);
     var installationJson = sys.storage.get('installationInfo-GitHub---'+account) || {id: null};
-    if (!!installationJson || !installationJson.id) {
+    if (!installationJson.id) {
         throw new Error("Installation for account "+account+" was not found");
     }
     var token = installationJson.token || null;
