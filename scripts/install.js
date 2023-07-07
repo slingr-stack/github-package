@@ -4465,8 +4465,7 @@ function getAccessTokenForAccount(account) {
         sys.logs.info('[github] Access token is expired or not found. Getting new token');
         var res = svc.http.post(
             {
-                url: API_URL_GITHUB,
-                path: "/app/installations/" + installationJson.id + "/access_tokens",
+                url: API_URL_GITHUB + "/app/installations/" + installationJson.id + "/access_tokens",
                 headers: {
                     "Authorization": "Bearer " + getJsonWebToken(),
                     "Accept": "application/vnd.github.machine-man-preview+json"
