@@ -29,6 +29,7 @@ listeners.defaultWebhookGithub = {
         if (eventName.equals("installation")) {
             var action = body['action'];
             installation = body['installation'];
+            sys.logs.warn(installation)
             if ("deleted".equals(action)) {
                 sys.logs.info("Removing installation for account "+ installation['account']['login']);
                 // delete DS

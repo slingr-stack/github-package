@@ -23,6 +23,13 @@
             "required": true
         },
         {
+            "name": "privateKey",
+            "label": "Private key",
+            "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
+            "type": "text",
+            "required": true
+        },
+        {
             "name": "webhooksUrl",
             "label": "Webhooks URL",
             "description": "The URL to configure in webhooks of your GitHub App",
@@ -33,13 +40,6 @@
             "name": "webhookSecret",
             "label": "Webhook secret",
             "description": "The webhook secret to validate requests",
-            "type": "text",
-            "required": true
-        },
-        {
-            "name": "privateKey",
-            "label": "Private key",
-            "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
             "type": "text",
             "required": true
         }

@@ -4342,7 +4342,7 @@ exports.utils.verifySignature = function (body, signature) {
         return false;
     }
     return true;
-}
+};
 
 /****************************************************
  Private helpers
