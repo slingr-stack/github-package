@@ -4441,6 +4441,7 @@ var Github = function (options) {
     options = options || {};
     options= setApiUri(options);
     options= setRequestHeaders(options);
+    options= setAuthorization(options);
     return options;
 }
 
@@ -4455,23 +4456,24 @@ function setApiUri(options) {
     return options;
 }
 
-function setRequestHeaders(options) {
-    var headers = options.headers || {};
+function setAuthorization(options) {
     sys.logs.debug('[github] Setting header token oauth');
-
-    var authorization = options.authorization || {}
+    var authorization = options.authorization || {};
     authorization = mergeJSON(authorization, {
         type: "oauth2",
         accessToken: sys.storage.get(config.get("oauth").id + ' - access_token'),
         headerPrefix: "token"
     });
     options.authorization = authorization;
+    return options;
+}
 
+function setRequestHeaders(options) {
+    var headers = options.headers || {};
     headers = mergeJSON(headers, {"Content-Type": "application/json"});
     if (headers.Accept === undefined || headers.Accept === null || headers.Accept === "") {
         headers = mergeJSON(headers, {"Accept": "application/vnd.github.machine-man-preview+json"});
     }
-
     options.headers = headers;
     return options;
 }
