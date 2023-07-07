@@ -2,43 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpReference = svc.http;
-
-var httpDependency = {
-    get: httpReference.get,
-    post: httpReference.post,
-    put: httpReference.put,
-    patch: httpReference.patch,
-    delete: httpReference.delete,
-    head: httpReference.head,
-    options: httpReference.options
-};
-var httpService = {};
-
-function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
-    try {
-        return requestFn(options, callbackData, callbacks);
-    } catch (error) {
-        sys.logs.error(JSON.stringify(error));
-        sys.logs.info("[github] Handling request with retry");
-        dependencies.oauth.functions.refreshToken();
-        return requestFn(setAuthorization(options), callbackData, callbacks);
-    }
-}
-
-function createWrapperFunction(requestFn) {
-    return function(options, callbackData, callbacks) {
-        return handleRequestWithRetry(requestFn, options, callbackData, callbacks);
-    };
-}
-
-for (var key in httpDependency) {
-    if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
-}
-
-exports.getAccessToken = function () {
-    return dependencies.oauth.functions.connectUser();
-}
+var httpService = svc.http;
 
 /****************************************************
  Helpers
