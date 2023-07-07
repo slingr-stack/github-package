@@ -1,9 +1,7 @@
 /****************************************************
  Dependencies
  ****************************************************/
-var httpService = svc.http;
 
-/*
 var httpReference = svc.http;
 
 var httpDependency = {
@@ -37,8 +35,9 @@ function createWrapperFunction(requestFn) {
 for (var key in httpDependency) {
     if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
 }
-*/
+
 exports.getAccessToken = function () {
+    sys.logs.info("[github] Getting access token from oauth");
     return dependencies.oauth.functions.connectUser();
 }
 
@@ -4459,11 +4458,16 @@ function setApiUri(options) {
 }
 
 function setAuthorization(options) {
+    /**********************************************************************************************
+         Dynamic configuration
+         config.oauth.id = 'installationInfo-GitHub-User-'+sys.context.getCurrentUserRecord().id();
+         return config;
+     ***********************************************************************************************/
     sys.logs.debug('[github] Setting header token oauth');
     var authorization = options.authorization || {};
     authorization = mergeJSON(authorization, {
         type: "oauth2",
-        accessToken: sys.storage.get(config.get("oauth").id + ' - access_token'),
+        accessToken: sys.storage.get('installationInfo-GitHub-User-' + config.get("oauth").id + ' - access_token'),
         headerPrefix: "token"
     });
     options.authorization = authorization;
