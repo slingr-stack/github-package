@@ -4454,26 +4454,29 @@ function setRequestHeaders(options) {
 }
 
 function getAccessTokenForAccount(account) {
-    var installationJson = sys.storage.put('installationInfo-GitHub---'+account);
-    if (installationJson == null) {
+    sys.logs.info('[github] Getting access token for account: ' + account);
+    var installationJson = sys.storage.get('installationInfo-GitHub---'+account) || {id: null};
+    if (!!installationJson || !installationJson.id) {
         throw new Error("Installation for account "+account+" was not found");
     }
-
-    var token;
-
-    if (token == null || token['expiration'] == null || token['expiration']< new Date()) {
-        var res = httpService.post(setApiUri({
-            path: "/app/installations/" + installationInfo['id'] + "/access_tokens",
-            headers: {
-                "Authorization": "Bearer " + getJsonWebToken(),
-                "Accept": "application/vnd.github.machine-man-preview+json"
-            }
-        }));
-        token = res['token'];
-        var expiration = new Date(new Date(res["expires_at"]) - 1 * 60 * 1000);
-
+    var token = installationJson.token || null;
+    var expiration = installationJson.expiration || 0;
+    if (!!token || expiration < new Date()) {
+        sys.logs.info('[github] Access token is expired or not found. Getting new token');
+        var res = svc.http.post(
+            {
+                path: "/app/installations/" + installationJson.id + "/access_tokens",
+                headers: {
+                    "Authorization": "Bearer " + getJsonWebToken(),
+                    "Accept": "application/vnd.github.machine-man-preview+json"
+                }
+            });
+        token = res.token;
+        var expires_at = res.expires_at;
+        expiration = new Date(new Date(expires_at) - 1 * 60 * 1000);
         installationJson = mergeJSON(installationJson, {"token": token, "expiration": expiration});
-        sys.storage.replace('installationInfo-GitHub---'+installation['account']['login'], installationJson);
+        sys.logs.info('[github] Saving new token for account: ' + account);
+        sys.storage.replace('installationInfo-GitHub---'+account, installationJson);
     }
     return token;
 }

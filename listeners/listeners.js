@@ -30,12 +30,18 @@ listeners.defaultWebhookGithub = {
                 sys.logs.info("Removing installation for account " + installation.account.login);
                 sys.storage.remove("installationInfo-GitHub---" + installation.account.login);
             } else {
-                if (installation.account.login) sys.storage.put("installationInfo-GitHub---" + installation.account.login, installation);
+                if (installation.account.login) {
+                    sys.logs.info("Creating installation for account " + installation.account.login);
+                    sys.storage.put("installationInfo-GitHub---" + installation.account.login, installation);
+                }
             }
         } else {
             if (eventName.equals("installation_repositories")) {
                 if (body.installation) installation = body.installation;
-                if (installation.account.login !== "") sys.storage.replace("installationInfo-GitHub---" + installation.account.login, installation);
+                if (installation.account.login !== "") {
+                    sys.logs.info("Updating installation for account " + installation.account.login);
+                    sys.storage.replace("installationInfo-GitHub---" + installation.account.login, installation);
+                }
             }
         }
         body.event_name = eventName;
