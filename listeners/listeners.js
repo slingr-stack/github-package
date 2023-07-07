@@ -29,7 +29,7 @@ listeners.defaultWebhookGithub = {
         if (eventName.equals("installation")) {
             var action = body.action;
             if (body.installation) {
-                installation = body.installation;
+                installation = JSON.stringify(body.installation);
             }
             sys.logs.warn(body)
             sys.logs.warn(installation)
@@ -53,7 +53,7 @@ listeners.defaultWebhookGithub = {
             }
         } else if (eventName.equals("installation_repositories")) {
             if (body.installation) {
-                installation = body.installation;
+                installation = JSON.stringify(body.installation);
             }
             // update DS
 
