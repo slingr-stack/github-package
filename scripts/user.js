@@ -1,7 +1,9 @@
 /****************************************************
  Dependencies
  ****************************************************/
+var httpService = svc.http;
 
+/*
 var httpReference = svc.http;
 
 var httpDependency = {
@@ -35,7 +37,7 @@ function createWrapperFunction(requestFn) {
 for (var key in httpDependency) {
     if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
 }
-
+*/
 exports.getAccessToken = function () {
     return dependencies.oauth.functions.connectUser();
 }
