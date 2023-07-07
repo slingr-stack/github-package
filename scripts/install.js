@@ -4431,12 +4431,14 @@ function setApiUri(options) {
 }
 
 function setRequestHeaders(options) {
+    sys.logs.warn(options)
+    sys.logs.warn(JSON.stringify(options))
     var headers = options.headers || {};
     sys.logs.debug('[github] Setting header token');
 
     var account;
     if (options.account !== undefined) {
-        account = options.account
+        account = options.account;
     }
     else {
         throw new Error('[github] the value in httpOptions.account is undefined and is required.');
