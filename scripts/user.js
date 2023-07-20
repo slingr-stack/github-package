@@ -4317,11 +4317,6 @@ exports.options = function(url, httpOptions, callbackData, callbacks) {
 
 exports.utils = {};
 
-exports.utils.getConfiguration = function (property) {
-    sys.logs.debug('[github] Get property: '+property);
-    return config.get(property);
-};
-
 exports.utils.parseTimestamp = function(dateString) {
     if (!dateString) {
         return null;
@@ -4370,13 +4365,25 @@ exports.utils.fromMillisToDate = function(params) {
     return null;
 };
 
+exports.utils.getConfiguration = function (property) {
+    sys.logs.debug('[github] Get property: '+property);
+    return config.get(property);
+};
+
+exports.utils.verifySignature = function (body, signature) {
+    sys.logs.info("Checking signature");
+    var secret = config.get("webhookSecret");
+    if (!secret || secret === "" ||
+        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
+        sys.logs.error("Invalid signature or body");
+        return false;
+    }
+    return true;
+};
+
 /****************************************************
  Private helpers
  ****************************************************/
-
-var concatQuery = function (url, key, value) {
-    return url + ((!url || url.indexOf('?') < 0) ? '?' : '&') + key + "=" + value;
-}
 
 var checkHttpOptions = function (url, options) {
     options = options || {};
