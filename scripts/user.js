@@ -38,7 +38,7 @@ for (var key in httpDependency) {
 
 exports.getAccessToken = function () {
     sys.logs.info("[github] Getting access token from oauth");
-    return dependencies.oauth.functions.connectUser();
+    return dependencies.oauth.functions.connectUser('github:userConnected');
 }
 
 /****************************************************
