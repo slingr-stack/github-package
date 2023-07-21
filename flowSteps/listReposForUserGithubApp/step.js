@@ -5,5 +5,5 @@
  */
 step.listReposForUserGithubApp = function () {
 
-	return endpoint.user.repos.get();
+	return pkg.github.user.user.repos.get();
 };
