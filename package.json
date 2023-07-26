@@ -81,16 +81,6 @@
             "type": "flowStep",
             "namespace": "steps",
             "path": "/flowSteps/apiCallGithub"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "steps",
-            "path": "/flowSteps/listIssuesGithub"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "steps",
-            "path": "/flowSteps/listReposForUserGithub"
         }
     ]
 }

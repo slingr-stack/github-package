@@ -6,3 +6,17 @@ step.listIssuesGithubApp = function () {
 
 	return pkg.github.user.repos.issues.get();
 };
+
+/*
+,
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/listIssuesGithub"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/listReposForUserGithub"
+        }
+ */
