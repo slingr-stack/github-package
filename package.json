@@ -11,7 +11,7 @@
         {
             "type": "package",
             "name": "oauth",
-            "version": "v1.0.9"
+            "version": "v1.0.10"
         }
     ],
     "configuration": [
@@ -48,7 +48,7 @@
         {
             "label": "Webhook",
             "name": "webhook",
-            "description": "Happens when GitHub sends a webhook to the endpoint."
+            "description": "Happens when GitHub sends a webhook to the package."
         },
         {
             "label": "User connected to github",

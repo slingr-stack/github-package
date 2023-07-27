@@ -24,7 +24,7 @@ The GitHub package allows to easily create apps for GitHub. It provides the foll
 - Shortcuts to access the REST API
 - Support for webhooks
 
-In order to take advantage of this endpoint we strongly recommend to understand how GitHub Apps work and
+In order to take advantage of this package, we strongly recommend to understand how GitHub Apps work and
 what you can do with the REST API:
 
 - [GitHub Apps](https://developer.github.com/apps/)
@@ -32,12 +32,12 @@ what you can do with the REST API:
 
 ## Configuration
 
-In order to configure the endpoint you will need to create a GitHub App. This can be done in your personal
+In order to configure the package you will need to create a GitHub App. This can be done in your personal
 account or under an organization. Here you can find detailed information on how to do it:
 
 [Registering GitHub Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/)
 
-Once you have created your app you will be able to configure the endpoint.
+Once you have created your app you will be able to configure the package.
 
 ### App ID
 
@@ -69,7 +69,7 @@ The private key can be generated in the details of your GitHub app. When you cop
 
 # Quick start
 
-Once your endpoint is configured, you can read an issue like this:
+Once your package is configured, you can read an issue like this:
 
 ```js
 var issue = pkg.github.user.repos.issues.get('repo-owner', 'repo-name', 123);
@@ -83,9 +83,9 @@ var newComment = pkg.github.user.repos.issues.comments.post('repo-owner', 'repo-
 
 # Javascript API
 
-The Javascript API of the GitHub endpoint has three pieces:
+The Javascript API of the GitHub package has three pieces:
 
-- **HTTP requests**: These allow to make regular HTTP requests.
+- **HTTP requests**: These allow making regular HTTP requests.
 - **Shortcuts**: These are helpers to make HTTP request to the API in a more convenient way.
 - **Additional Helpers**: These helpers provide additional features that facilitate or improves the endpoint usage in SLINGR.
 
@@ -109,7 +109,7 @@ var response = pkg.github.install.put('/notifications')
 
 ```
 
-Please take a look at the documentation of the [HTTP endpoint](https://github.com/slingr-stack/http-endpoint#javascript-api)
+Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
 for more information about generic requests.
 
 ## Shortcuts
@@ -4406,7 +4406,7 @@ As an alternative option to using scripts, you can make use of Flows and Flow St
 
 ### Generic Flow Step
 
-Generic flow step for full use of the entire endpoint and its services.
+Generic flow step for full use of the entire package and its services.
 
 <h3>Inputs</h3>
 
@@ -4605,7 +4605,7 @@ sys.logs.info('Event name: '+body.event_name);
 
 ## Dependencies
 * HTTP Service (Latest Version)
-* Oauth Package (v1.0.0)
+* Oauth Package (v1.0.10)
 
 ## About SLINGR
 

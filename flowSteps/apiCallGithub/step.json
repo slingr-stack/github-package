@@ -7,7 +7,7 @@
     {
       "label": "Url",
       "name": "url",
-      "description": "The method and path to which this endpoint is to send requests in a generic way.",
+      "description": "The method and path to which this package is to send requests in a generic way.",
       "type": "urlParams",
       "required": "true",
       "options": {
