@@ -41,6 +41,11 @@ exports.getAccessToken = function () {
     return dependencies.oauth.functions.connectUser('github:userConnected');
 }
 
+exports.removeAccessToken = function () {
+    sys.logs.info("[github] Removing access token from oauth");
+    return dependencies.oauth.functions.disconnectUser('github:disconnectUser');
+}
+
 /****************************************************
  Helpers
  ****************************************************/
