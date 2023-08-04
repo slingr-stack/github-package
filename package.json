@@ -11,7 +11,7 @@
         {
             "type": "package",
             "name": "oauth",
-            "version": "v1.0.10"
+            "version": "v1.0.12"
         }
     ],
     "configuration": [
@@ -28,6 +28,49 @@
             "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
             "type": "text",
             "required": true
+        },
+        {
+            "label": "Configuration id",
+            "description": "Id used to store tokens",
+            "name": "id",
+            "type": "text"
+        },
+        {
+            "label": "Auth URL",
+            "name": "authUrl",
+            "type": "text"
+        },
+        {
+            "label": "Access Token URL",
+            "name": "accessTokenUrl",
+            "type": "text"
+        },
+        {
+            "label": "Client Id",
+            "name": "clientId",
+            "type": "text"
+        },
+        {
+            "label": "Client Secret",
+            "name": "clientSecret",
+            "type": "text"
+        },
+        {
+            "label": "Scope",
+            "name": "scope",
+            "type": "text"
+        },
+        {
+            "label": "State",
+            "name": "state",
+            "type": "text"
+        },
+        {
+            "name": "oauthCallback",
+            "label": "OAuth callback",
+            "description": "The OAuth callback to configure in your GitHub App",
+            "type": "label",
+            "value": "config.AUTH_CALLBACK_URL+'/authCallback'"
         },
         {
             "name": "webhooksUrl",
