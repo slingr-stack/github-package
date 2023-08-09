@@ -4493,7 +4493,7 @@ function getAccessTokenForAccount(account) {
     var expiration = installationJson.expiration || 0;
     if (!!token || expiration < new Date()) {
         sys.logs.info('[github] Access token is expired or not found. Getting new token');
-        var res = svc.http.post(
+        var res = httpReference.post(
             {
                 url: API_URL_GITHUB + "/app/installations/" + installationJson.id + "/access_tokens",
                 headers: {
