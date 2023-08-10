@@ -6,13 +6,13 @@
  ****************************************************/
 
 let configurationBuilder = function (config) {
-    config.oauth = {}
-    let oauthConfig =  config.oauth
-    oauthConfig.id = config.id;
-    oauthConfig.authUrl = config.authUrl;
-    oauthConfig.accessTokenUrl = config.accessTokenUrl;
-    oauthConfig.clientId = config.clientId;
-    oauthConfig.clientSecret = config.clientSecret;
-    oauthConfig.oauthCallback = config.oauthCallback;
+    config.oauth = {
+        id: 'installationInfo-GitHub-User-'+sys.context.getCurrentUserRecord().id(),
+        authUrl: config.authUrl,
+        accessTokenUrl: config.accessTokenUrl,
+        clientId: config.clientId,
+        clientSecret: config.clientSecret,
+        oauthCallback: config.oauthCallback
+    }
     return config;
 }
