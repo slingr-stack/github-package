@@ -4485,7 +4485,7 @@ function setRequestHeaders(options) {
 
 function getAccessTokenForAccount(account) {
     sys.logs.info('[github] Getting access token for account: ' + account);
-    var installationJson = sys.storage.get('installationInfo-GitHub---'+account) || {id: null};
+    var installationJson = sys.storage.get('installationInfo-GitHub---'+account, {decrypt: true}) || {id: null};
     if (!installationJson.id) {
         throw new Error("Installation for account "+account+" was not found");
     }
@@ -4506,7 +4506,7 @@ function getAccessTokenForAccount(account) {
         expiration = new Date(new Date(expires_at) - 1 * 60 * 1000);
         installationJson = mergeJSON(installationJson, {"token": token, "expiration": expiration});
         sys.logs.info('[github] Saving new token for account: ' + account);
-        sys.storage.replace('installationInfo-GitHub---'+account, installationJson);
+        sys.storage.replace('installationInfo-GitHub---'+account, installationJson, {encrypt: true});
     }
     return token;
 }

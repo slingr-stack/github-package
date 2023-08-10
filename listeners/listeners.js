@@ -32,7 +32,7 @@ listeners.defaultWebhookGithub = {
             } else {
                 if (installation.account.login) {
                     sys.logs.info("Creating installation for account " + installation.account.login);
-                    sys.storage.put("installationInfo-GitHub---" + installation.account.login, installation);
+                    sys.storage.put("installationInfo-GitHub---" + installation.account.login, installation, {encrypt: true});
                 }
             }
         } else {
@@ -40,7 +40,7 @@ listeners.defaultWebhookGithub = {
                 if (body.installation) installation = body.installation;
                 if (installation.account.login !== "") {
                     sys.logs.info("Updating installation for account " + installation.account.login);
-                    sys.storage.replace("installationInfo-GitHub---" + installation.account.login, installation);
+                    sys.storage.replace("installationInfo-GitHub---" + installation.account.login, installation, {encrypt: true});
                 }
             }
         }
