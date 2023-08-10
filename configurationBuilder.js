@@ -13,8 +13,6 @@ let configurationBuilder = function (config) {
     oauthConfig.accessTokenUrl = config.accessTokenUrl;
     oauthConfig.clientId = config.clientId;
     oauthConfig.clientSecret = config.clientSecret;
-    oauthConfig.scope = config.scope;
-    oauthConfig.state = config.state;
     oauthConfig.oauthCallback = config.oauthCallback;
     return config;
 }

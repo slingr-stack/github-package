@@ -14,6 +14,7 @@
             "version": "^v1.0.15"
         }
     ],
+    "configurationBuilder": "/configurationBuilder.js",
     "configuration": [
         {
             "name": "appId",
@@ -23,29 +24,6 @@
             "required": true
         },
         {
-            "name": "privateKey",
-            "label": "Private key",
-            "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
-            "type": "text",
-            "required": true
-        },
-        {
-            "label": "Configuration id",
-            "description": "Id used to store tokens",
-            "name": "id",
-            "type": "text"
-        },
-        {
-            "label": "Auth URL",
-            "name": "authUrl",
-            "type": "text"
-        },
-        {
-            "label": "Access Token URL",
-            "name": "accessTokenUrl",
-            "type": "text"
-        },
-        {
             "label": "Client Id",
             "name": "clientId",
             "type": "text"
@@ -53,16 +31,6 @@
         {
             "label": "Client Secret",
             "name": "clientSecret",
-            "type": "text"
-        },
-        {
-            "label": "Scope",
-            "name": "scope",
-            "type": "text"
-        },
-        {
-            "label": "State",
-            "name": "state",
             "type": "text"
         },
         {
@@ -85,6 +53,23 @@
             "description": "The webhook secret to validate requests",
             "type": "text",
             "required": true
+        },
+        {
+            "name": "privateKey",
+            "label": "Private key",
+            "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Auth URL",
+            "name": "authUrl",
+            "type": "text"
+        },
+        {
+            "label": "Access Token URL",
+            "name": "accessTokenUrl",
+            "type": "text"
         }
     ],
     "events": [
