@@ -4469,16 +4469,11 @@ function setApiUri(options) {
 }
 
 function setAuthorization(options) {
-    /**********************************************************************************************
-         Dynamic configuration
-         config.oauth.id = 'installationInfo-GitHub-User-'+sys.context.getCurrentUserRecord().id();
-         return config;
-     ***********************************************************************************************/
     sys.logs.debug('[github] Setting header token oauth');
     var authorization = options.authorization || {};
     authorization = mergeJSON(authorization, {
         type: "oauth2",
-        accessToken: sys.storage.get(config.get("id") + ' - access_token', {decrypt:true}),
+        accessToken: sys.storage.get('installationInfo-GitHub-User-'+sys.context.getCurrentUserRecord().id() + ' - access_token', {decrypt:true}),
         headerPrefix: "token"
     });
     options.authorization = authorization;
