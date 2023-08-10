@@ -6,10 +6,8 @@
  ****************************************************/
 
 let configurationBuilder = function (config) {
-    let newConfig = {
-        oauth: {}
-    };
-    let oauthConfig = newConfig.oauth
+    config.oauth = {}
+    let oauthConfig =  config.oauth
     oauthConfig.id = config.id;
     oauthConfig.authUrl = config.authUrl;
     oauthConfig.accessTokenUrl = config.accessTokenUrl;
@@ -18,5 +16,5 @@ let configurationBuilder = function (config) {
     oauthConfig.scope = config.scope;
     oauthConfig.state = config.state;
     oauthConfig.oauthCallback = config.oauthCallback;
-    return newConfig;
+    return config;
 }
