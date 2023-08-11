@@ -26,6 +26,9 @@ function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
         } catch (error) {
             sys.logs.error("[github] Error handling request with retry.");
         }
+        finally {
+            throw new Error(error);
+        }
     }
 }
 
