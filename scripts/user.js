@@ -4474,7 +4474,7 @@ function setAuthorization(options) {
     authorization = mergeJSON(authorization, {
         type: "oauth2",
         accessToken: sys.storage.get('installationInfo-GitHub-User-'+sys.context.getCurrentUserRecord().id() + ' - access_token', {decrypt:true}),
-        headerPrefix: "token"
+        headerPrefix: "Bearer"
     });
     options.authorization = authorization;
     return options;
