@@ -20,7 +20,7 @@ listeners.defaultWebhookGithub = {
         var signature = headers["x-hub-signature"];
         //TODO uncomment when pepito credentials are fixed
       /*  if (!pkg.github.install.utils.verifySignature(JSON.stringify(body), signature)) {
-            throw new Error("Invalid signature or body.");
+            throw new Error("[Github] Invalid signature or body.");
         }
        */
         var installation = {account: {login: null}};
@@ -29,11 +29,11 @@ listeners.defaultWebhookGithub = {
             var action = body.action;
             if (body.installation) installation = body.installation;
             if ("deleted".equals(action) && installation.account.login) {
-                sys.logs.info("Removing installation for account " + installation.account.login);
+                sys.logs.info("[Github] Removing installation for account " + installation.account.login);
                 sys.storage.remove("installationInfo-GitHub---" + installation.account.login);
             } else {
                 if (installation.account.login) {
-                    sys.logs.info("Creating installation for account " + installation.account.login);
+                    sys.logs.info("[Github] Creating installation for account " + installation.account.login);
                     sys.storage.put("installationInfo-GitHub---" + installation.account.login, installation, {encrypt: true});
                 }
             }
@@ -41,13 +41,13 @@ listeners.defaultWebhookGithub = {
             if (eventName.equals("installation_repositories")) {
                 if (body.installation) installation = body.installation;
                 if (installation.account.login !== "") {
-                    sys.logs.info("Updating installation for account " + installation.account.login);
+                    sys.logs.info("[Github] Updating installation for account " + installation.account.login);
                     sys.storage.replace("installationInfo-GitHub---" + installation.account.login, installation, {encrypt: true});
                 }
             }
         }
         body.event_name = eventName;
-        sys.logs.info("Valid webhook received. Triggering event.");
+        sys.logs.info("[Github] Valid webhook received. Triggering event.");
         sys.events.triggerEvent("github:webhook", {body: body, params: params});
         return "ok";
     }
