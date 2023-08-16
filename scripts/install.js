@@ -4363,15 +4363,27 @@ exports.utils.getConfiguration = function (property) {
     return config.get(property);
 };
 
-exports.utils.verifySignature = function (body, signature) {
+exports.utils.verifySignature = function (body, signature, signature256) {
     sys.logs.info("Checking signature");
+    var verified = true;
+    var verified256 = true;
     var secret = config.get("webhookSecret");
-    if (!secret || secret === "" ||
-        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
-        sys.logs.error("Invalid signature or body");
+    if (!body || body === "") {
+        sys.logs.error("The body is null or empty");
         return false;
     }
-    return true;
+    if (!secret || secret === "" || signature === "" ||
+        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
+        sys.logs.error("Invalid signature sha1");
+        verified = false;
+    }
+    if (!secret || secret === "" || !signature256 ||
+        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha256=",""), secret, "HmacSHA256")) {
+        sys.logs.error("Invalid signature sha 256");
+        verified256 = false;
+    }
+
+    return (verified || verified256);
 };
 
 /****************************************************
@@ -4491,7 +4503,7 @@ function getAccessTokenForAccount(account) {
     }
     var token = installationJson.token || null;
     var expiration = installationJson.expiration || 0;
-    if (!token || expiration < new Date()) {
+    if (!token || expiration < new Date().getTime()) {
         sys.logs.info('[github] Access token is expired or not found. Getting new token');
         var res = httpService.post(
             {
@@ -4503,7 +4515,7 @@ function getAccessTokenForAccount(account) {
             });
         token = res.token;
         var expires_at = res.expires_at;
-        expiration = new Date(new Date(expires_at) - 1 * 60 * 1000);
+        expiration = new Date(new Date(expires_at) - 1 * 60 * 1000).getTime();
         installationJson = mergeJSON(installationJson, {"token": token, "expiration": expiration});
         sys.logs.info('[github] Saving new token for account: ' + account);
         sys.storage.replace('installationInfo-GitHub---'+account, installationJson, {encrypt: true});
