@@ -18,14 +18,16 @@ listeners.defaultWebhookGithub = {
         var params = event.data.parameters;
         var headers = event.data.headers;
         var signature = headers["x-hub-signature"];
-        //TODO uncomment when pepito credentials are fixed
-      /*  if (!pkg.github.install.utils.verifySignature(JSON.stringify(body), signature)) {
-            throw new Error("[Github] Invalid signature or body.");
-        }
-       */
+
         var installation = {account: {login: null}};
         var eventName = headers["x-github-event"];
         if (eventName.equals("installation")) {
+            //TODO uncomment when pepito credentials are fixed
+            /*
+              if (!pkg.github.install.utils.verifySignature(JSON.stringify(body), signature)) {
+                  throw new Error("[Github] Invalid signature or body.");
+              }
+             */
             var action = body.action;
             if (body.installation) installation = body.installation;
             if ("deleted".equals(action) && installation.account.login) {
