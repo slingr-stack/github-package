@@ -3207,7 +3207,8 @@ exports.repos.git.refs.delete = function(owner, repo, ref, httpOptions) {
         sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [owner,repo,ref].');
         return;
     }
-    var url = parse('/repos/:owner/:repo/git/refs/:ref', [owner, repo, ref]);
+    var refEncode = encodeURIComponent(ref);
+    var url = parse('/repos/:owner/:repo/git/refs/:ref', [owner, repo, refEncode]);
     sys.logs.debug('[github] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
     return httpService.delete(Github(options));
