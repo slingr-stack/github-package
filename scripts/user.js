@@ -24,7 +24,7 @@ function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
             dependencies.oauth.functions.refreshToken('github:refreshToken');
             return requestFn(setAuthorization(options), callbackData, callbacks);
         } catch (error) {
-            sys.logs.error("[github] Error handling request with retry.", error);
+            sys.logs.warn("[github] Error handling request with retry.", error);
         }
     }
 }
@@ -4377,17 +4377,6 @@ exports.utils.fromMillisToDate = function(params) {
 exports.utils.getConfiguration = function (property) {
     sys.logs.debug('[github] Get property: '+property);
     return config.get(property);
-};
-
-exports.utils.verifySignature = function (body, signature) {
-    sys.logs.info("Checking signature");
-    var secret = config.get("webhookSecret");
-    if (!secret || secret === "" ||
-        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
-        sys.logs.error("Invalid signature or body");
-        return false;
-    }
-    return true;
 };
 
 /****************************************************
