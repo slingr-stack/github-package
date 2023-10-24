@@ -87,27 +87,26 @@
     "metadata": [
         {
             "type": "script",
-            "namespace": "api",
+            "namespace": "app",
             "path": "/scripts/app.js"
         },
         {
             "type": "script",
-            "namespace": "api",
+            "namespace": "install",
             "path": "/scripts/install.js"
         },
         {
             "type": "script",
-            "namespace": "api",
+            "namespace": "user",
             "path": "/scripts/user.js"
         },
         {
             "type": "listener",
-            "namespace": "webhook",
             "path": "/listeners/listeners.js"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "apiCallGithub",
             "path": "/flowSteps/apiCallGithub"
         }
     ]
