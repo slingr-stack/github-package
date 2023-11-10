@@ -62,14 +62,11 @@
             "required": true
         },
         {
-            "label": "Auth URL",
-            "name": "authUrl",
-            "type": "text"
-        },
-        {
-            "label": "Access Token URL",
-            "name": "accessTokenUrl",
-            "type": "text"
+            "name": "GITHUB_API_BASE_URL",
+            "label": "GitHub API Base URL",
+            "description": "The base URL of the GitHub API",
+            "type": "text",
+            "value": "https://api.github.com"
         }
     ],
     "events": [
@@ -106,8 +103,8 @@
         },
         {
             "type": "flowStep",
-            "namespace": "apiCallGithub",
-            "path": "/flowSteps/apiCallGithub"
+            "namespace": "apiCallGithubInstall",
+            "path": "/flowSteps/apiCallGithubInstall"
         }
     ]
 }

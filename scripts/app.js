@@ -2,9 +2,9 @@
  Dependencies
  ****************************************************/
 
-var httpReference = dependencies.http;
+let httpReference = dependencies.http;
 
-var httpDependency = {
+let httpDependency = {
     get: httpReference.get,
     post: httpReference.post,
     put: httpReference.put,
@@ -13,8 +13,13 @@ var httpDependency = {
     head: httpReference.head,
     options: httpReference.options
 };
-var httpService = {};
 
+let httpService = {};
+
+/**
+ *
+ * Handles a request with retry from the platform side.
+ */
 function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
     try {
         return requestFn(options, callbackData, callbacks);
@@ -30,310 +35,193 @@ function createWrapperFunction(requestFn) {
     };
 }
 
-for (var key in httpDependency) {
+for (let key in httpDependency) {
     if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
 }
-
-/****************************************************
- Helpers
- ****************************************************/
-
-exports.app = {};
-
-exports.appManifests = {};
-
-exports.appManifests.conversions = {};
-
-exports.app.installationRequests = {};
-
-exports.app.installations = {};
-
-exports.app.installations.accessTokens = {};
-
-exports.app.installations.suspended = {};
-
-exports.applications = {};
-
-exports.applications.token = {};
-
-exports.applications.token.scoped = {};
-
-exports.apps = {};
-
-exports.orgs = {};
-
-exports.orgs.installation = {};
-
-exports.repos = {};
-
-exports.repos.installation = {};
-
-exports.users = {};
-
-exports.users.installation = {};
-
-exports.app.get = function(httpOptions) {
-    var url = parse('/app');
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.appManifests.conversions.post = function(code, httpOptions) {
-    if (!code) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [code].');
-        return;
-    }
-    var url = parse('/app-manifests/:code/conversions', [code]);
-    sys.logs.debug('[github] POST from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Github(options));
-};
-
-exports.app.installationRequests.get = function(httpOptions) {
-    var url = parse('/app/installation-requests');
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.app.installations.get = function(installationId, httpOptions) {
-    if(!httpOptions){
-        for (var i = 0 ; i < arguments.length; i++){
-            if (isObject(arguments[i])){
-                httpOptions = arguments[i];
-                arguments[i] = undefined;
-            }
-        }
-    }
-    var url;
-    switch(httpOptions ? arguments.length - 1 : arguments.length){
-        case 0:
-            url = parse('/app/installations');
-            break;
-        case 1:
-            url = parse('/app/installations/:installation_id', [installationId]);
-            break;
-        default:
-            sys.logs.error('Invalid argument received.');
-            return;
-    }
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.app.installations.delete = function(installationId, httpOptions) {
-    if (!installationId) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
-        return;
-    }
-    var url = parse('/app/installations/:installation_id', [installationId]);
-    sys.logs.debug('[github] DELETE from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Github(options));
-};
-
-exports.app.installations.accessTokens.post = function(installationId, httpOptions) {
-    if (!installationId) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
-        return;
-    }
-    var url = parse('/app/installations/:installation_id/access_tokens', [installationId]);
-    sys.logs.debug('[github] POST from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Github(options));
-};
-
-exports.app.installations.suspended.put = function(installationId, httpOptions) {
-    if (!installationId) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
-        return;
-    }
-    var url = parse('/app/installations/:installation_id/suspended', [installationId]);
-    sys.logs.debug('[github] PUT from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.put(Github(options));
-};
-
-exports.app.installations.suspended.delete = function(installationId, httpOptions) {
-    if (!installationId) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [installationId].');
-        return;
-    }
-    var url = parse('/app/installations/:installation_id/suspended', [installationId]);
-    sys.logs.debug('[github] DELETE from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Github(options));
-};
-
-exports.applications.token.scoped.post = function(clientId, httpOptions) {
-    if (!clientId) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [clientId].');
-        return;
-    }
-    var url = parse('/applications/:client_id/token/scoped', [clientId]);
-    sys.logs.debug('[github] POST from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Github(options));
-};
-
-exports.apps.get = function(appSlug, httpOptions) {
-    if (!appSlug) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [appSlug].');
-        return;
-    }
-    var url = parse('/apps/:app_slug', [appSlug]);
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.orgs.installation.get = function(org, httpOptions) {
-    if (!org) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [org].');
-        return;
-    }
-    var url = parse('/orgs/:org/installation', [org]);
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.repos.installation.get = function(owner, repo, httpOptions) {
-    if (!owner || !repo) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [owner,repo].');
-        return;
-    }
-    var url = parse('/repos/:owner/:repo/installation', [owner, repo]);
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
-
-exports.users.installation.get = function(username, httpOptions) {
-    if (!username) {
-        sys.logs.error('Invalid argument received. This helper should receive the following parameters as non-empty strings: [username].');
-        return;
-    }
-    var url = parse('/users/:username/installation', [username]);
-    sys.logs.debug('[github] GET from: ' + url);
-    var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Github(options));
-};
 
 /****************************************************
  Public API - Generic Functions
  ****************************************************/
 
-exports.get = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP GET request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the GET request to.
+ * @param {object} httpOptions  - The options to be included in the GET request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the GET request. [optional]
+ * @return {object}             - The response of the GET request.
+ */
+exports.get = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.get(Github(options), callbackData, callbacks);
 };
 
-exports.post = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP POST request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the POST request to.
+ * @param {object} httpOptions  - The options to be included in the POST request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the POST request. [optional]
+ * @return {object}             - The response of the POST request.
+ */
+exports.post = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.post(Github(options), callbackData, callbacks);
 };
 
-exports.put = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP PUT request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the PUT request to.
+ * @param {object} httpOptions  - The options to be included in the PUT request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the POST request. [optional]
+ * @return {object}             - The response of the PUT request.
+ */
+exports.put = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.put(Github(options), callbackData, callbacks);
 };
 
-exports.patch = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP PATCH request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the PATCH request to.
+ * @param {object} httpOptions  - The options to be included in the PATCH request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the POST request. [optional]
+ * @return {object}             - The response of the PATCH request.
+ */
+exports.patch = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.patch(Github(options), callbackData, callbacks);
 };
 
-exports.delete = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP DELETE request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the DELETE request to.
+ * @param {object} httpOptions  - The options to be included in the DELETE request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the DELETE request. [optional]
+ * @return {object}             - The response of the DELETE request.
+ */
+exports.delete = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.delete(Github(options), callbackData, callbacks);
 };
 
-exports.head = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP HEAD request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the HEAD request to.
+ * @param {object} httpOptions  - The options to be included in the HEAD request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the HEAD request. [optional]
+ * @return {object}             - The response of the HEAD request.
+ */
+exports.head = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.head(Github(options), callbackData, callbacks);
 };
 
-exports.options = function(url, httpOptions, callbackData, callbacks) {
-    var options = checkHttpOptions(url, httpOptions);
+/**
+ * Sends an HTTP OPTIONS request to the specified URL with the provided HTTP options.
+ *
+ * @param {string} path         - The path to send the OPTIONS request to.
+ * @param {object} httpOptions  - The options to be included in the OPTIONS request check http-service documentation.
+ * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
+ * @param {object} callbacks    - The callback functions to be called upon completion of the OPTIONS request. [optional]
+ * @return {object}             - The response of the OPTIONS request.
+ */
+exports.options = function(path, httpOptions, callbackData, callbacks) {
+    let options = checkHttpOptions(path, httpOptions);
     return httpService.options(Github(options), callbackData, callbacks);
 };
 
-exports.utils = {};
+exports.utils = {
 
-exports.utils.parseTimestamp = function(dateString) {
-    if (!dateString) {
-        return null;
-    }
-    var dt = dateString.split(/[: T\-]/).map(parseFloat);
-    return new Date(dt[0], dt[1] - 1, dt[2], dt[3] || 0, dt[4] || 0, dt[5] || 0, 0);
-};
-
-exports.utils.formatTimestamp = function(date) {
-    if (!date) {
-        return null;
-    }
-    var pad = function(number) {
-        var r = String(number);
-        if ( r.length === 1 ) {
-            r = '0' + r;
+    /**
+     * Converts a given date to a timestamp.
+     *
+     * @param {number | string} params      - The date to be converted.
+     * @return {object}                     - An object containing the timestamp.
+     */
+    fromDateToTimestamp: function(params) {
+        if (!!params) {
+            return {timestamp: new Date(params).getTime()};
         }
-        return r;
-    };
-    return date.getUTCFullYear()
-        + '-' + pad( date.getUTCMonth() + 1 )
-        + '-' + pad( date.getUTCDate() )
-        + 'T' + pad( date.getUTCHours() )
-        + ':' + pad( date.getUTCMinutes() )
-        + ':' + pad( date.getUTCSeconds() )
-        + '.' + String( (date.getUTCMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
-        + 'Z';
-};
+        return null;
+    },
 
-exports.utils.fromDateToTimestamp = function(params) {
-    if (!!params) {
-        return {timestamp: new Date(params).getTime()};
-    }
-    return null;
-};
+    /**
+     * Converts a timestamp to a date object.
+     *
+     * @param {number} timestamp            - The timestamp to convert.
+     * @return {object}                     - The date object representing the timestamp.
+     */
+    fromTimestampToDate: function(timestamp) {
+        return new Date(timestamp);
+    },
 
-exports.utils.fromMillisToDate = function(params) {
-    if (!!params) {
-        var sdf = new Intl.DateTimeFormat('en-US', {
-            year: 'numeric', month: '2-digit', day: '2-digit',
-            hour: '2-digit', minute: '2-digit', second: '2-digit',
-            timeZone: 'UTC'
-        });
-        return {date: sdf.format(new Date(parseInt(params)))};
-    }
-    return null;
-};
+    /**
+     * Gets a configuration from the properties.
+     *
+     * @param {string} property             - The name of the property to get.
+     *                                          If it is empty, return the entire configuration object.
+     * @return {string}                     - The value of the property or the whole object as string.
+     */
+    getConfiguration: function (property) {
+        if (!property) {
+            sys.logs.debug('[github] Get configuration');
+            return JSON.stringify(config.get());
+        }
+        sys.logs.debug('[github] Get property: '+property);
+        return config.get(property);
+    },
 
-exports.utils.getConfiguration = function (property) {
-    sys.logs.debug('[github] Get property: '+property);
-    return config.get(property);
+    /**
+     * Concatenates a path with a param query and its value.
+     *
+     * @param path                          - The path to concatenate.
+     * @param key                           - The name of the param.
+     * @param value                         - The value of the param.
+     * @returns {string}                    - The concatenated path without coding parameters.
+     */
+    concatQuery: function (path, key, value) {
+        return path + ((!path || path.indexOf('?') < 0) ? '?' : '&') + key + "=" + value;
+    },
+
+    /**
+     * Merges two JSON objects into a single object.
+     *
+     * @param {Object} json1 - The first JSON object to be merged.
+     * @param {Object} json2 - The second JSON object to be merged.
+     * @return {Object} - The merged JSON object.
+     */
+    mergeJSON: mergeJSON,
 };
 
 /****************************************************
  Private helpers
  ****************************************************/
 
-var checkHttpOptions = function (url, options) {
+function checkHttpOptions (path, options) {
     options = options || {};
-    if (!!url) {
-        if (isObject(url)) {
-            // take the 'url' parameter as the options
-            options = url || {};
+    if (!!path) {
+        if (isObject(path)) {
+            // take the 'path' parameter as the options
+            options = path || {};
         } else {
             if (!!options.path || !!options.params || !!options.body) {
                 // options contain the http package format
-                options.path = url;
+                options.path = path;
             } else {
                 // create html package
                 options = {
-                    path: url,
+                    path: path,
                     body: options
                 }
             }
@@ -342,45 +230,17 @@ var checkHttpOptions = function (url, options) {
     return options;
 }
 
-var isObject = function (obj) {
+function isObject (obj) {
     return !!obj && stringType(obj) === '[object Object]'
 }
 
-var stringType = Function.prototype.call.bind(Object.prototype.toString)
-
-var parse = function (str) {
-    try {
-        if (arguments.length > 1) {
-            var args = arguments[1], i = 0;
-            return str.replace(/(:(?:\w|-)+)/g, () => {
-                if (typeof (args[i]) != 'string' && typeof (args[i]) != 'number') throw new Error('Invalid type of argument: [' + args[i] + '] for url [' + str + '].');
-                return args[i++];
-            });
-        } else {
-            if (str) {
-                return str;
-            }
-            throw new Error('No arguments nor url were received when calling the helper. Please check it\'s definition.');
-        }
-    } catch (err) {
-        sys.logs.error('Some unexpected error happened during the parse of the url for this helper.')
-        throw err;
-    }
-}
-
-/****************************************************
- Constants
- ****************************************************/
-
-
-var GITHUB_API_BASE_URL = "https://api.github.com";
-var API_URL_GITHUB = GITHUB_API_BASE_URL+"";
+let stringType = Function.prototype.call.bind(Object.prototype.toString)
 
 /****************************************************
  Configurator
  ****************************************************/
 
-var Github = function (options) {
+let Github = function (options) {
     options = options || {};
     options= setApiUri(options);
     options= setRequestHeaders(options);
@@ -392,14 +252,14 @@ var Github = function (options) {
  ****************************************************/
 
 function setApiUri(options) {
-    var url = options.path || "";
-    options.url = API_URL_GITHUB + url;
+    let url = options.path || "";
+    options.url = config.get("API_URL_GITHUB") + url;
     sys.logs.debug('[github] Set url: ' + options.path + "->" + options.url);
     return options;
 }
 
 function setRequestHeaders(options) {
-    var headers = options.headers || {};
+    let headers = options.headers || {};
     sys.logs.debug('[github] Setting header bearer');
     headers = mergeJSON(headers, {"Content-Type": "application/json"});
     headers = mergeJSON(headers, {"Authorization": "Bearer " + getJsonWebToken()});
@@ -411,8 +271,8 @@ function setRequestHeaders(options) {
 }
 
 function getJsonWebToken() {
-    var currentTime = new Date().getTime();
-    var futureTime = new Date(currentTime + ( 10 * 60 * 1000)).getTime();
+    let currentTime = new Date().getTime();
+    let futureTime = new Date(currentTime + ( 10 * 60 * 1000)).getTime();
     return sys.utils.crypto.jwt.generate(
         {
             iss: config.get("appId"),
@@ -426,7 +286,7 @@ function getJsonWebToken() {
 
 function mergeJSON (json1, json2) {
     const result = {};
-    var key;
+    let key;
     for (key in json1) {
         if(json1.hasOwnProperty(key)) result[key] = json1[key];
     }
