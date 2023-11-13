@@ -44,11 +44,21 @@ for (let key in httpDependency) {
     if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
 }
 
+/**
+ * Retrieves the access token.
+ *
+ * @return {void} The access token refreshed on the storage.
+ */
 exports.getAccessToken = function () {
     sys.logs.info("[github] Getting access token from oauth");
     return dependencies.oauth.functions.connectUser('github:userConnected');
 }
 
+/**
+ * Removes the access token from the oauth.
+ *
+ * @return {void} The access token removed on the storage.
+ */
 exports.removeAccessToken = function () {
     sys.logs.info("[github] Removing access token from oauth");
     return dependencies.oauth.functions.disconnectUser('github:disconnectUser');
