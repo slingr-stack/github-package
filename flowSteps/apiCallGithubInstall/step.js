@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpService = dependencies.http;
+let httpService = dependencies.http;
 
 /**
  * This flow step will send generic request.
@@ -22,7 +22,7 @@ var httpService = dependencies.http;
  */
 step.apiCallGithubInstall = function (inputs) {
 
-	var inputsLogic = {
+	let inputsLogic = {
 		headers: inputs.headers || [],
 		params: inputs.params || [],
 		body: inputs.body || {},
@@ -36,7 +36,7 @@ step.apiCallGithubInstall = function (inputs) {
 		method: inputs.method || "get"
 	};
 
-	var options = {
+	let options = {
 		path: inputsLogic.path,
 		params: isObject(inputsLogic.params) ? inputsLogic.params : stringToObject(inputsLogic.params),
 		headers: isObject(inputsLogic.headers) ? inputsLogic.headers : stringToObject(inputsLogic.headers),
@@ -77,13 +77,13 @@ function isObject (obj) {
 	return !!obj && stringType(obj) === '[object Object]'
 }
 
-var stringType = Function.prototype.call.bind(Object.prototype.toString);
+let stringType = Function.prototype.call.bind(Object.prototype.toString);
 
 function stringToObject (obj) {
 	if (!!obj){
-		var keyValue = obj.toString().split(',');
-		var parseObj = {};
-		for(var i = 0; i < keyValue.length; i++) {
+		let keyValue = obj.toString().split(',');
+		let parseObj = {};
+		for(let i = 0; i < keyValue.length; i++) {
 			parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
 		}
 		return parseObj;
