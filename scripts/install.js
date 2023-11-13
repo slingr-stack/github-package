@@ -38,6 +38,7 @@ function createWrapperFunction(requestFn) {
 for (let key in httpDependency) {
     if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
 }
+
 /****************************************************
  Public API - Generic Functions
  ****************************************************/
