@@ -53,8 +53,8 @@ step.apiCallGithubInstall = function (inputs) {
 		readTimeout: inputsLogic.readTimeout
 	};
 
-	setApiUri(options)
-	setRequestHeaders(options);
+	options= setApiUri(options)
+	options= setRequestHeaders(options);
 
 	switch (inputsLogic.method.toLowerCase()) {
 		case 'get':
