@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-let httpService = dependencies.http;
+var httpService = dependencies.http;
 
 /**
  * This flow step will send generic request.
@@ -22,7 +22,7 @@ let httpService = dependencies.http;
  */
 step.apiCallGithubInstall = function (inputs) {
 
-	let inputsLogic = {
+	var inputsLogic = {
 		headers: inputs.headers || [],
 		params: inputs.params || [],
 		body: inputs.body || {},
@@ -32,12 +32,15 @@ step.apiCallGithubInstall = function (inputs) {
 		fullResponse: inputs.fullResponse || false,
 		connectionTimeout: inputs.connectionTimeout || 5000,
 		readTimeout: inputs.readTimeout || 60000,
-		path: inputs.path || "",
+		path: inputs.path || {
+			urlValue: "",
+			paramsValue: []
+		},
 		method: inputs.method || "get"
 	};
 
-	let options = {
-		path: inputsLogic.path,
+	var options = {
+		path: parse(inputsLogic.path.urlValue, inputsLogic.path.paramsValue),
 		params: isObject(inputsLogic.params) ? inputsLogic.params : stringToObject(inputsLogic.params),
 		headers: isObject(inputsLogic.headers) ? inputsLogic.headers : stringToObject(inputsLogic.headers),
 		body: isObject(inputsLogic.body) ? inputsLogic.body : JSON.parse(inputsLogic.body),
@@ -73,17 +76,32 @@ step.apiCallGithubInstall = function (inputs) {
 	return null;
 };
 
+function parse (url, pathVariables){
+	var regex = /{([^}]*)}/g;
+	if (!url.match(regex)){
+		return url;
+	}
+	if(!pathVariables){
+		sys.logs.error('No path variables have been received and the url contains curly brackets\'{}\'');
+		throw new Error('Error please contact support.');
+	}
+	url = url.replace(regex, function(m, i) {
+		return pathVariables[i] ? pathVariables[i] : m;
+	})
+	return url;
+}
+
 function isObject (obj) {
 	return !!obj && stringType(obj) === '[object Object]'
 }
 
-let stringType = Function.prototype.call.bind(Object.prototype.toString);
+var stringType = Function.prototype.call.bind(Object.prototype.toString);
 
 function stringToObject (obj) {
 	if (!!obj){
-		let keyValue = obj.toString().split(',');
-		let parseObj = {};
-		for(let i = 0; i < keyValue.length; i++) {
+		var keyValue = obj.toString().split(',');
+		var parseObj = {};
+		for(var i = 0; i < keyValue.length; i++) {
 			parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
 		}
 		return parseObj;
@@ -92,24 +110,24 @@ function stringToObject (obj) {
 }
 
 function setApiUri(options) {
-	let url = options.path || "";
+	var url = options.path || "";
 	options.url = config.get("API_URL_GITHUB") + url;
 	sys.logs.debug('[github] Set url: ' + options.path + "->" + options.url);
 	return options;
 }
 
 function setRequestHeaders(options) {
-	let headers = options.headers || {};
+	var headers = options.headers || {};
 	sys.logs.debug('[github] Setting header token');
 
-	let account;
+	var account;
 	if (!!options.body && !!options.body.account) {
 		account = options.body.account;
 	}
 	else {
 		throw new Error('[github] the value in httpOptions.account is undefined and is required.');
 	}
-	let token = getAccessTokenForAccount(account);
+	var token = getAccessTokenForAccount(account);
 
 	headers = mergeJSON(headers, {"Content-Type": "application/json"});
 	headers = mergeJSON(headers, {"Authorization": "token " + token});
@@ -123,15 +141,15 @@ function setRequestHeaders(options) {
 
 function getAccessTokenForAccount(account) {
 	sys.logs.info('[github] Getting access token for account: ' + account);
-	let installationJson = sys.storage.get('installationInfo-GitHub---'+account, {decrypt: true}) || {id: null};
+	var installationJson = sys.storage.get('installationInfo-GitHub---'+account, {decrypt: true}) || {id: null};
 	if (!installationJson.id) {
 		throw new Error("Installation for account "+account+" was not found");
 	}
-	let token = installationJson.token || null;
-	let expiration = installationJson.expiration || 0;
+	var token = installationJson.token || null;
+	var expiration = installationJson.expiration || 0;
 	if (!token || expiration < new Date().getTime()) {
 		sys.logs.info('[github] Access token is expired or not found. Getting new token');
-		let res = httpService.post(
+		var res = httpService.post(
 			{
 				url: API_URL_GITHUB + "/app/installations/" + installationJson.id + "/access_tokens",
 				headers: {
@@ -140,7 +158,7 @@ function getAccessTokenForAccount(account) {
 				}
 			});
 		token = res.token;
-		let expires_at = res.expires_at;
+		var expires_at = res.expires_at;
 		expiration = new Date(new Date(expires_at) - 1 * 60 * 1000).getTime();
 		installationJson = mergeJSON(installationJson, {"token": token, "expiration": expiration});
 		sys.logs.info('[github] Saving new token for account: ' + account);
@@ -150,8 +168,8 @@ function getAccessTokenForAccount(account) {
 }
 
 function getJsonWebToken() {
-	let currentTime = new Date().getTime();
-	let futureTime = new Date(currentTime + ( 10 * 60 * 1000)).getTime();
+	var currentTime = new Date().getTime();
+	var futureTime = new Date(currentTime + ( 10 * 60 * 1000)).getTime();
 	return sys.utils.crypto.jwt.generate(
 		{
 			iss: config.get("appId"),
@@ -164,8 +182,8 @@ function getJsonWebToken() {
 }
 
 function mergeJSON (json1, json2) {
-	const result = {};
-	let key;
+	var result = {};
+	var key;
 	for (key in json1) {
 		if(json1.hasOwnProperty(key)) result[key] = json1[key];
 	}
