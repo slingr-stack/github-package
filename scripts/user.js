@@ -29,7 +29,7 @@ function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
             dependencies.oauth.functions.refreshToken('github:refreshToken');
             return requestFn(setAuthorization(options), callbackData, callbacks);
         } catch (error) {
-            sys.logs.warn("[github] Error handling request with retry.", error);
+            sys.logs.warn("[github] Error handling request with retry: ", JSON.stringify(error));
         }
     }
 }

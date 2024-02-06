@@ -5,13 +5,13 @@
         {
             "type": "service",
             "name": "http",
-            "version": "v1.2.6",
+            "version": "v1.3.8",
             "instanceId": "shared"
         },
         {
             "type": "package",
             "name": "oauth",
-            "version": "^v1.0.16"
+            "version": "v1.0.24"
         }
     ],
     "configurationBuilder": "/configurationBuilder.js",

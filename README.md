@@ -9,7 +9,7 @@
     <tbody>
     <tr>
         <td>GitHub package</td>
-        <td>November 10, 2023</td>
+        <td>February 06, 2023</td>
         <td>Detailed description of the API of the GitHub package.</td>
     </tr>
     </tbody>
@@ -17,7 +17,7 @@
 
 # Overview
 
-The GitHub package allows to easily create apps for GitHub. It provides the following features:
+The GitHub package allows easily creating apps for GitHub. It provides the following features:
 
 - Management of installations
 - OAuth for users
@@ -32,12 +32,12 @@ what you can do with the REST API:
 
 ## Configuration
 
-In order to configure the package you will need to create a GitHub App. This can be done in your personal
+To configure the package, you will need to create a GitHub App. This can be done in your personal
 account or under an organization. Here you can find detailed information on how to do it:
 
 [Registering GitHub Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/)
 
-Once you have created your app you will be able to configure the package.
+Once you have created your app, you will be able to configure the package.
 
 ### App ID
 
@@ -45,11 +45,11 @@ This is the App ID of your app.
 
 ### Client ID
 
-This is the Client ID of your app, which is needed in order to perform operations on behalf of a user.
+This is the Client ID of your app, which is needed to perform operations on behalf of a user.
 
 ### Client secret
 
-This is the client secret of your app, which is needed in order to perform operations on behalf of a user.
+This is the client secret of your app, which is needed to perform operations on behalf of a user.
 
 ### Callback URL
 
@@ -57,7 +57,8 @@ This is the OAuth callback you need to configure in your GitHub app.
 
 ### Webhooks URL
 
-This is the URL you need to set in your GitHub app so webhooks are sent there, which is needed in order to perform operations on behalf of an installation.
+This is the URL you need to set in your GitHub app so webhooks are sent there,
+which is needed to perform operations on behalf of an installation.
 
 ### Webhooks secret
 
@@ -65,21 +66,8 @@ This is the secret for webhooks configured in your app. It is needed to validate
 
 ### Private key
 
-The private key can be generated in the details of your GitHub app. When you copy it you do not need to add any line breaks or other especial characters, just copy the content of the key.
-
-# Quick start
-
-Once your package is configured, you can read an issue like this:
-
-```js
-var issue = pkg.github.user.repos.issues.get('repo-owner', 'repo-name', 123);
-```
-
-And can post a comment to the issue with this code:
-
-```js
-var newComment = pkg.github.user.repos.issues.comments.post('repo-owner', 'repo-name', 123, {body: 'test comment'});
-```
+The private key can be generated in the details of your GitHub app. 
+When you copy it, you do not need to add any line breaks or other especial characters, copy the content of the key.
 
 # Javascript API
 
@@ -89,7 +77,8 @@ The Javascript API of the GitHub package has two pieces:
 - **Flow steps**
 
 ## HTTP requests
-You can make `GET`,`POST`,`DELETE`,`PUT` requests to the [github API](https://docs.github.com/es/rest?apiVersion=2022-11-28) like this:
+You can make `GET`,`POST`,`DELETE`,`PUT`
+requests to the [GitHub API](https://docs.github.com/es/rest?apiVersion=2022-11-28) like this:
 ```javascript
 var response = pkg.github.app.get('/repos/:owner/:repo/installation')
 var response = pkg.github.app.post('/applications/{client_id}/token/scoped', body)
@@ -205,7 +194,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td> false </td>
         <td> overrideSettings </td>
-        <td>Indicates that the resource has to be downloaded into a file instead of returning it in the response.</td>
+        <td>It Indicates that the resource has to be downloaded into a file instead of returning it in the response.</td>
     </tr>
     <tr>
         <td>Download</td>
@@ -213,7 +202,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td> false </td>
         <td> overrideSettings </td>
-        <td>If true the method won't return until the file has been downloaded, and it will return all the information of the file.</td>
+        <td>If true, the method won't return until the file has been downloaded, and it will return all the information of the file.</td>
     </tr>
     <tr>
         <td>File name</td>
@@ -221,7 +210,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td></td>
         <td> overrideSettings </td>
-        <td>If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.</td>
+        <td>If provided, the file will be stored with this name. If empty, the file name will be calculated from the URL.</td>
     </tr>
     <tr>
         <td>Full response</td>
@@ -229,7 +218,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td> false </td>
         <td> overrideSettings </td>
-        <td>Include extended information about response</td>
+        <td>Includes extended information about response</td>
     </tr>
     <tr>
         <td>Connection Timeout</td>
@@ -237,7 +226,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td> 5000 </td>
         <td> overrideSettings </td>
-        <td>Connect timeout interval, in milliseconds (0 = infinity).</td>
+        <td>Connect a timeout interval in milliseconds (0 = infinity).</td>
     </tr>
     <tr>
         <td>Read Timeout</td>
@@ -245,7 +234,7 @@ Generic flow step for full use of the entire package and its services.
         <td>no</td>
         <td> 60000 </td>
         <td> overrideSettings </td>
-        <td>Read timeout interval, in milliseconds (0 = infinity).</td>
+        <td>Read a timeout interval in milliseconds (0 = infinity).</td>
     </tr>
     </tbody>
 </table>
@@ -274,7 +263,8 @@ Generic flow step for full use of the entire package and its services.
 
 </details>
 
-For more information about how shortcuts or flow steps works, and how they are generated, take a look at the [slingr-helpgen tool](https://github.com/slingr-stack/slingr-helpgen).
+For more information about how shortcuts or flow steps work, and how they are generated, 
+take a look at the [slingr-helpgen tool](https://github.com/slingr-stack/slingr-helpgen).
 
 ### Shortcuts
 
@@ -282,19 +272,11 @@ For more information about how shortcuts or flow steps works, and how they are g
 
 There are some utilities to help you work with data coming from GitHub.
 
-#### Date time parser and formatter
-
-```js
-var date = pkg.githubApp.utils.parseTimestamp(str);
-var str = pkg.githubApp.utils.formatTimestamp(date);
-```
-
-GitHub has timestamps with a format like this: `2013-02-12T13:22:01Z`. This two methods allow to convert
-it to a `Date` object and the other way around.
+GitHub has timestamps with a format like this: `2013-02-12T13:22:01Z`.
 
 ## Dependencies
-* HTTP Service (Latest Version)
-* Oauth Package (v1.0.10)
+* HTTP Service (v1.3.8)
+* Oauth Package (v1.0.24)
 
 # About SLINGR
 
