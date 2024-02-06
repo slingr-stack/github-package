@@ -279,7 +279,7 @@ let Github = function (options) {
 
 function setApiUri(options) {
     let url = options.path || "";
-    options.url = config.get("API_URL_GITHUB") + url;
+    options.url = config.get("GITHUB_API_BASE_URL") + url;
     sys.logs.debug('[github] Set url: ' + options.path + "->" + options.url);
     return options;
 }

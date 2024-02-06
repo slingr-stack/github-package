@@ -111,7 +111,7 @@ function stringToObject (obj) {
 
 function setApiUri(options) {
 	var url = options.path || "";
-	options.url = config.get("API_URL_GITHUB") + url;
+	options.url = config.get("GITHUB_API_BASE_URL") + url;
 	sys.logs.debug('[github] Set url: ' + options.path + "->" + options.url);
 	return options;
 }
@@ -151,7 +151,7 @@ function getAccessTokenForAccount(account) {
 		sys.logs.info('[github] Access token is expired or not found. Getting new token');
 		var res = httpService.post(
 			{
-				url: config.get('API_URL_GITHUB') + "/app/installations/" + installationJson.id + "/access_tokens",
+				url: config.get('GITHUB_API_BASE_URL') + "/app/installations/" + installationJson.id + "/access_tokens",
 				headers: {
 					"Authorization": "Bearer " + getJsonWebToken(),
 					"Accept": "application/vnd.github.machine-man-preview+json"
