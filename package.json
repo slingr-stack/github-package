@@ -5,7 +5,7 @@
         {
             "type": "service",
             "name": "http",
-            "version": "v1.3.8",
+            "version": "v1.5.4",
             "instanceId": "shared"
         },
         {
@@ -41,7 +41,7 @@
             "value": "config.AUTH_CALLBACK_URL+'/authCallback'"
         },
         {
-            "name": "webhooksUrl",
+            "name": "webhooks",
             "label": "Webhooks URL",
             "description": "The URL to configure in webhooks of your GitHub App",
             "type": "label",
