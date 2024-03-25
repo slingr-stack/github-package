@@ -41,7 +41,7 @@
             "value": "config.AUTH_CALLBACK_URL+'/authCallback'"
         },
         {
-            "name": "webhooks",
+            "name": "webhook",
             "label": "Webhooks URL",
             "description": "The URL to configure in webhooks of your GitHub App",
             "type": "label",
