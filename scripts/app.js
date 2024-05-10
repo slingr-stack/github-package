@@ -21,12 +21,7 @@ let httpService = {};
  * Handles a request with retry from the platform side.
  */
 function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
-    try {
-        return requestFn(options, callbackData, callbacks);
-    } catch (error) {
-        sys.logs.info("[github] Handling request...");
-        sys.logs.warn(JSON.stringify(error));
-    }
+    return requestFn(options, callbackData, callbacks);
 }
 
 function createWrapperFunction(requestFn) {
