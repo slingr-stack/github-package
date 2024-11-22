@@ -1,17 +1,17 @@
 {
     "name": "github",
-    "label": "Github Package",
+    "label": "Github",
     "dependencies": [
         {
             "type": "service",
             "name": "http",
-            "version": "v1.5.4",
+            "version": "v1.7.0",
             "instanceId": "shared"
         },
         {
             "type": "package",
             "name": "oauth",
-            "version": "v1.0.24"
+            "version": "v1.0.32"
         }
     ],
     "configurationBuilder": "/configurationBuilder.js",
@@ -98,13 +98,13 @@
             "path": "/scripts/user.js"
         },
         {
-            "type": "listener",
-            "path": "/listeners/listeners.js"
+            "type": "script",
+            "namespace": "utils",
+            "path": "/scripts/utils.js"
         },
         {
-            "type": "flowStep",
-            "namespace": "apiCallGithubInstall",
-            "path": "/flowSteps/apiCallGithubInstall"
+            "type": "listener",
+            "path": "/listeners/webhook.js"
         }
     ]
 }

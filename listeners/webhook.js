@@ -13,9 +13,8 @@ listeners.defaultWebhookGithub = {
         }
     },
     callback: function(event) {
-        sys.logs.info("Received Github webhook. Processing and triggering a package event.");
+        sys.logs.info("Received Github webhook. Processing and triggering a package event.", event);
         var body = event.data.body;
-        var params = event.data.parameters;
         var headers = event.data.headers;
         var signature = headers["x-hub-signature"];
         var signature256 = headers["x-hub-signature-256"];
@@ -54,7 +53,7 @@ listeners.defaultWebhookGithub = {
         }
         body.event_name = eventName;
         sys.logs.info("[Github] Valid webhook received. Triggering event.", eventName);
-        sys.events.triggerEvent("github:webhook", {body: body, params: params});
-        return "ok";
+        sys.events.triggerEvent("github:webhook", event.data);
+        return true;
     }
 };
