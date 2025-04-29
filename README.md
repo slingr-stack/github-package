@@ -1,7 +1,7 @@
 
 # Overview
 
-Repo: [https://github.com/slingr-stack/github-package](https://github.com/slingr-stack/google-drive-package)
+Repo: [https://github.com/slingr-stack/github-package](https://github.com/slingr-stack/github-package)
 
 
 The GitHub [package](https://platform-docs.slingr.io/dev-reference/data-model-and-logic/packages/) allows easily creating apps for GitHub. It provides the following features:
@@ -16,6 +16,28 @@ what you can do with the REST API:
 
 - [GitHub Apps](https://developer.github.com/apps/)
 - [GitHub REST API](https://developer.github.com/v3/)
+
+### Scripts and Credential Usage
+
+This integration utilizes three different scripts (user.js, app.js, install.js), each with distinct roles and authentication mechanisms:
+
+#### User Script:
+
+Operations executed via this script utilize individual user credentials obtained through OAuth.
+Actions performed using this script appear as if the individual user directly executed them on GitHub.
+Ideal for scenarios where user-specific actions or data access is required.
+
+#### App Script:
+
+Uses credentials related specifically to the GitHub App itself.
+Suitable for general application-level actions or management tasks, such as administrative operations or configuration reviews.
+Actions executed appear as coming from the GitHub App, not a specific user.
+
+#### Install Script:
+
+Utilizes credentials from the GitHub App installation within a specific repository.
+Executes actions through a bot account associated with the GitHub App installation.
+Typically used for automated operations on repositories, such as continuous integration workflows, automated pull requests, and issue management.
 
 ## Configuration
 
