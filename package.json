@@ -5,8 +5,7 @@
         {
             "type": "service",
             "name": "http",
-            "version": "v1.7.0",
-            "instanceId": "shared"
+            "version": "v1.8.6"
         },
         {
             "type": "package",
@@ -35,7 +34,7 @@
         },
         {
             "name": "oauthCallback",
-            "label": "OAuth callback",
+            "label": "OAuth Callback",
             "description": "The OAuth callback to configure in your GitHub App",
             "type": "label",
             "value": "config.AUTH_CALLBACK_URL+'/authCallback'"
@@ -49,14 +48,14 @@
         },
         {
             "name": "webhookSecret",
-            "label": "Webhook secret",
+            "label": "Webhook Secret",
             "description": "The webhook secret to validate requests",
             "type": "text",
             "required": true
         },
         {
             "name": "privateKey",
-            "label": "Private key",
+            "label": "Private Key",
             "description": "This is the private key generate for the GitHub app (Copy in the original format without adding any new lines or \n characters)",
             "type": "text",
             "required": true
