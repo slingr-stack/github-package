@@ -12,7 +12,7 @@ let configurationBuilder = function (config) {
         accessTokenUrl: "https://github.com/login/oauth/access_token",
         clientId: config.clientId,
         clientSecret: config.clientSecret,
-        oauthCallback: config.oauthCallback
+        oauthCallback: config.oauthCallback 
     }
     return config;
 }
