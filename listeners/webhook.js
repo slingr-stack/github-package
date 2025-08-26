@@ -22,9 +22,9 @@ listeners.defaultWebhookGithub = {
         var installation = {account: {login: null}};
         var eventName = headers["x-github-event"];
         if (eventName === "installation") {
-            var action = body.action;
+            var gitAction = body.action;
             if (body.installation) installation = body.installation;
-            if ("deleted" === action && installation.account.login) {
+            if ("deleted" === gitAction && installation.account.login) {
                 if (!pkg.github.install.utils.verifySignature(JSON.stringify(body), signature, signature256)) {
                     throw new Error("[Github] Invalid signature for uninstallation.");
                 }
